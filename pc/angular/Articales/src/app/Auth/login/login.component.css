@@ -1,0 +1,23 @@
+.container-fluid {
+    background-image: url('../../../assets/login.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.loginsection {
+    width: 40%;
+    margin: auto;
+    padding-top: 5%;
+}
+
+a {
+    color: yellow;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+span {
+    color: red;
+    font-weight: 700;
+}

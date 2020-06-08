@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="registrationsection">
+        <h2>Registration Form</h2>
+        <form [formGroup]="registrationform" (ngSubmit)=savedata(registrationform.value)>
+            <div class="form-group">
+                <label for="name">username:</label>
+                <input type="text" class="form-control" formControlName="username" placeholder="username">
+                <div *ngIf="registrationform.controls.username.errors">
+                    <span *ngIf="registrationform.controls.username.invalid && registrationform.controls.username.touched "> Enter username</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" autocomplete="on" class="form-control" formControlName="mailId" placeholder="email">
+                <div *ngIf="registrationform.controls.mailId.errors">
+                    <span *ngIf="registrationform.controls.mailId.invalid && registrationform.controls.mailId.touched "> Enter mailId</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" formControlName="password" placeholder="password">
+                <div *ngIf="registrationform.controls.password.errors">
+                    <span *ngIf="registrationform.controls.password.invalid && registrationform.controls.password.touched "> Enter password</span>
+                    <span *ngIf="registrationform.controls.password.errors.minlength"> Length 6 latter</span>
+                </div>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <a routerLink="/login">already logged in</a>
+            </label>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-4">
+                    <button type="submit" [disabled]="registrationform.invalid" class="btn btn-primary w-100">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
