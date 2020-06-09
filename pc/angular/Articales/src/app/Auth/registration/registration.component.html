@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="registrationsection">
-        <h2>Registration Form</h2>
+        <h2>Registration</h2>
         <form [formGroup]="registrationform" (ngSubmit)=savedata(registrationform.value)>
             <div class="form-group">
                 <label for="name">username:</label>
@@ -10,10 +10,17 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="name">Address:</label>
+                <input type="text" class="form-control" formControlName="address" placeholder="address">
+                <div *ngIf="registrationform.controls.address.errors">
+                    <span *ngIf="registrationform.controls.address.invalid && registrationform.controls.address.touched "> Enter address</span>
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" autocomplete="on" class="form-control" formControlName="mailId" placeholder="email">
-                <div *ngIf="registrationform.controls.mailId.errors">
-                    <span *ngIf="registrationform.controls.mailId.invalid && registrationform.controls.mailId.touched "> Enter mailId</span>
+                <input type="email" autocomplete="on" class="form-control" formControlName="email" placeholder="email">
+                <div *ngIf="registrationform.controls.email.errors">
+                    <span *ngIf="registrationform.controls.email.invalid && registrationform.controls.email.touched "> Enter mailId</span>
                 </div>
             </div>
             <div class="form-group">

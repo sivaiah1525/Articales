@@ -1,16 +1,16 @@
 <div class="container-fluid">
     <div class="loginsection">
-        <h2>Login Form</h2>
+        <h2>Login </h2>
         <form [formGroup]="loginform" (ngSubmit)="savedata(loginform.value)">
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" autocomplete="on" class="form-control" formControlName="mailId" placeholder="email">
-                <div *ngIf="loginform.controls.mailId.errors">
-                    <span *ngIf="loginform.controls.mailId.invalid && loginform.controls.mailId.touched "> Enter mailId</span>
+                <input type="email" autocomplete="on" class="form-control" formControlName="email" placeholder="email">
+                <div *ngIf="loginform.controls.email.errors">
+                    <span *ngIf="loginform.controls.email.invalid && loginform.controls.email.touched "> Enter email</span>
                 </div>
             </div>
             <div class="form-group">
-                <label for="pwd">Password:</label>
+                <label for="pwd">password:</label>
                 <input type="password" class="form-control" formControlName="password" placeholder="password">
                 <div *ngIf="loginform.controls.password.errors">
                     <span *ngIf="loginform.controls.password.invalid && loginform.controls.password.touched ">Enter password</span>

@@ -1,6 +1,8 @@
+import { LoginService } from './../../services/login/login.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -12,21 +14,27 @@ export class LoginComponent implements OnInit {
   JWTtoken: any;
   constructor(
     private router: Router,
+    private loginserv: LoginService,
+    private toastr: ToastrService
 
   ) { }
 
   ngOnInit(): void {
     this.loginform = new FormGroup({
-      mailId: new FormControl(null, [Validators.required]),
+      email: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
     });
 
   }
 
   async savedata(data) {
- console.log(data);
- this.router.navigate(['/articales']);
-
+    try {
+      const token = await this.loginserv.login(data);
+      this.router.navigate(['/articales']);
+    } catch (error) {
+      console.log(error);
+      this.toastr.success('Invalid Email');
+    }
   }
 
 }
